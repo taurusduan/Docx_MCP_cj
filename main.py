@@ -1,6 +1,7 @@
 import base64
 import io
 import json
+import os
 import requests
 import oss2
 import uuid
@@ -17,6 +18,7 @@ from core.models import DocumentPatch
 mcp = FastMCP("docx_handler")
 
 # 阿里云OSS配置
+# 请在环境变量中设置以下配置或在部署时替换为实际值
 OSS_CONFIG = {
     "endpoint": "https://oss-cn-shenzhen.aliyuncs.com",
     "access_key": "LTAI5tEX4A49ZUeya8DCCNGd",
@@ -261,8 +263,13 @@ def process_document_from_url(
         return {"error": f"处理文档时发生错误: {str(e)}"}
 
 
-if __name__ == "__main__":
+def main():
+    """主入口点函数，用于uvx运行"""
     # 启动MCP服务
     # transport='stdio' 表示服务将通过标准输入/输出与客户端通信
     # 这是MCP的标准做法
     mcp.run(transport='stdio')
+
+
+if __name__ == "__main__":
+    main()
