@@ -2,11 +2,14 @@
 
 ## 准备工作
 
-### 1. 准备 PyPI 账户
+### 1. 获取 PyPI API Token
 
-1. 访问 [PyPI](https://pypi.org/) 并注册账户
-2. 记录您的用户名和密码
-3. 确保账户已验证邮箱地址
+⚠️ **重要**：PyPI 已停止支持用户名/密码认证，必须使用 API Token！
+
+1. 访问 [PyPI](https://pypi.org/) 并登录账户
+2. 访问 [Account Settings](https://pypi.org/manage/account/)
+3. 在 "API tokens" 部分创建新的 token
+4. 复制生成的 token（格式：`pypi-xxx...`）
 
 ### 2. 配置环境变量
 
@@ -14,16 +17,16 @@
 
 ```bash
 # Windows PowerShell
-$env:TWINE_USERNAME = "your-pypi-username"
-$env:TWINE_PASSWORD = "your-pypi-password"
+$env:TWINE_USERNAME = "__token__"
+$env:TWINE_PASSWORD = "pypi-your-token-here"
 
 # Windows CMD
-set TWINE_USERNAME=your-pypi-username
-set TWINE_PASSWORD=your-pypi-password
+set TWINE_USERNAME=__token__
+set TWINE_PASSWORD=pypi-your-token-here
 
 # Linux/macOS
-export TWINE_USERNAME=your-pypi-username
-export TWINE_PASSWORD=your-pypi-password
+export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=pypi-your-token-here
 ```
 
 ## 发布步骤
