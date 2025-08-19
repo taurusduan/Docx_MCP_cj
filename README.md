@@ -111,17 +111,16 @@ uvx --from . docx-mcp
 ```json
 {
   "mcpServers": {
-       "docx_filler_service": {
-      "command": "cmd",
+    "docx_filler_service": {
       "args": [
-        "/c",
-        "uvx",
         "docx-mcp"
-      ]
+      ],
+      "command": "uvx"
     }
   }
 }
 ```
+
 
 ## ✨ 部署优势
 
